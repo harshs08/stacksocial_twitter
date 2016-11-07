@@ -11,5 +11,10 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe TwitterHelper, type: :helper do
-
+  describe "#extract_link" do
+    it "extrack link from tweets" do
+      expect(helper.extract_link('hello tweet from @someone')).to eq "hello tweet from " \
+      "@<a class=\"tweet-url username\" href=\"https://twitter.com/someone\" rel=\"nofollow\">someone</a>"
+    end
+  end
 end

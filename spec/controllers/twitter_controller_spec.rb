@@ -18,4 +18,11 @@ RSpec.describe TwitterController, type: :controller do
     get :index
     expect( response ).to render_template( :index )
   end
+
+  it 'call TwitterService to get tweets of a user' do
+    login_with create( :user )
+    get :index, params: { username: 'test' }
+    expect( response ).to render_template( :index )
+    #expect(TwitterService).to receive(:tweets)
+  end
 end

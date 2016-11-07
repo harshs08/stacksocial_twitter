@@ -58,3 +58,8 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers
 end
+
+VCR.configure do |c|
+  c.cassette_library_dir  = Rails.root.join("spec", "vcr")
+  c.hook_into :webmock
+end
