@@ -6,7 +6,7 @@
       <% if @tweets.present? %>
         <% flash.now[:success] = "Tweets for #{@username}" %>
         <% @tweets.each do |t| %>
-          <h3> <%= t.text %>  </h3>
+          <p><%=extract_link(t.text) %></p>
         <% end %>
       <% else %>
         <p>Please Search for a valid twittter handle.</p>
