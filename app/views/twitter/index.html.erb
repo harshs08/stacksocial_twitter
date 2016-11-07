@@ -1,3 +1,17 @@
-<div class="row">
-  <h1>Test</h1>
+<div class="container">
+
+  <%= render :partial => "search" %>
+  <div class="row">
+    <div class="span6 offset3">
+      <% if @tweets.present? %>
+        <% flash.now[:success] = "Tweets for #{@username}" %>
+        <% @tweets.each do |t| %>
+          <h3> <%= t.text %>  </h3>
+        <% end %>
+      <% else %>
+        <p>Please Search for a valid twittter handle.</p>
+      <% end %>
+    </div>
+  </div>
+
 </div>
