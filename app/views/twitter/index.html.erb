@@ -1,15 +1,23 @@
 <div class="container">
 
   <%= render :partial => "search" %>
+  <br>
   <div class="row">
-    <div class="span6 offset3">
+    <div class="span9 offset1">
       <% if @tweets.present? %>
         <% flash.now[:success] = "Tweets for #{@username}" %>
-        <% @tweets.each do |t| %>
-          <p><%=extract_link(t.text) %></p>
-        <% end %>
+        <ol class="list-group">
+          <% @tweets.each do |t| %>
+            <li class="list-group-item clearfix">
+              <%= extract_link(t.text) %>
+              <span class="badge">Created at: <%= t.created_at.to_formatted_s(:long_ordinal) %></span>
+            </li>
+          <% end %>
+        </ol>
       <% else %>
-        <p>Please Search for a valid twittter handle.</p>
+        <div class="well">
+          <p>Please Search for a valid twittter handle.</p>
+        </div>
       <% end %>
     </div>
   </div>
