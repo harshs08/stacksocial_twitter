@@ -3,12 +3,12 @@
 Stack Social Twitter Challenge
 ==============================
 
+[Hosted At](https://salty-brook-24574.herokuapp.com)
+
 [Challenge Description](https://github.com/stacksocial/code-challenge/blob/master/ruby/rails-twitter-api/README.md)
 
-Ruby on Rails
--------------
-
 Application dependencies:
+-------------------------
 
 - Ruby 2.3.1
 - Rails 5.0.0.1
@@ -52,3 +52,10 @@ Deploy to heroku:
 - `git push heroku master`
 - `heroku run rake db:migrate`
 - More details [here](https://devcenter.heroku.com/articles/getting-started-with-rails5)
+
+Future Additions:
+-----------------
+- Add more feature for interacting with twitter, like search
+- Improve styling
+- Add memecache or couchbase for caching
+- Dockerise the app
