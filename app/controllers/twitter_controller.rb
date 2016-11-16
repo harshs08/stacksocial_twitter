@@ -3,14 +3,21 @@ class TwitterController < ApplicationController
 
   def index
     @username ||= params[:username]
-    show_tweets if @username.present?
+    @last_twit_id ||= params[:last_twit_id]
+    paginate_set
   end
 
   private
   
-  def show_tweets
-    @tweets = Rails.cache.fetch("#{@username}/show_tweets", expires_in: 5.minutes) do
-      TwitterService.tweets(usr: @username)
+
+  def paginate_set
+    if @username.present?
+      @tweets = TwitterService.tweets(usr: @username, max_id: @last_twit_id)
+      @last_twit_id = @tweets.last.id
+    else
+      @tweets = TwitterService.tweets(usr: @username)
     end
   end
+
+
 end

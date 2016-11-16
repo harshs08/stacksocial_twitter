@@ -6,6 +6,7 @@
 
       <%= label_tag :username %>
       <%= text_field_tag :username, params[:username], placeholder: "Search Tweets" %>
+      <%= hidden_field_tag :last_twit_id, params[:last_twit_id], value: @last_twit_id %>
 
       <%= submit_tag "Get User Tweets", class: "btn btn-large btn-primary" %>
     <% end %>
